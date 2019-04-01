@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<script type="text/javascript" src="external.js"></script>
+	<div class="center">
+		<center>
+			<h1>Click here to</h1>
+			<a href="logout.html"><img src="Logout.jpg" title="Logout" alt="Logout"></a> </br>
+			Your Basket does contain following Items: </br>
+			</br>
+		</center>
+	<table align="center">
+		<tr>
+			<th>Price of single Item</th>
+			<th>Item</th>
+			<th>Times</th>
+			<th></th>
+		</tr>	
+		<script>
+			let totalPrice=0;
+			let shopBasket=JSON.parse(sessionStorage.getItem('pointer'));
+			for(let i=0;i<shopBasket.length;i++){
+				for(let key1 in shopBasket[i]){
+					for(let key2 in shopBasket[i][key1]){
+						document.write("<tr>");
+						document.write("<th>"+key2+"</th>");
+						document.write("<th>"+shopBasket[i][key1][key2]+"</th>");
+						document.write(`<th id='key${key1}'>${key1}</th>`);
+						document.write(`<th><input type="button" value="Remove Item" onClick='removeFromTheBasket(${JSON.stringify(shopBasket[i])})'/></th>`);
+						document.write("</tr>");
+						totalPrice+=(key1*key2);
+					}
+				}
+			}
+			
+		</script>	
+	</table>
+	</br>
+	<script>document.write(`<center>Total price is: ${totalPrice}</center>`);</script>
+	</br>
+	<center><a href="mainpage.html">GO TO PRODUCTS IF YOU WANT TO ADD NEW ITEMS TO YOUR BASKET</a></center> </br>
+	</div>
+</body>
+</html>

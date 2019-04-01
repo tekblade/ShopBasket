@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="center">
+<h1 align="center">Shop Basket</h2>
+<script type="text/javascript" src="external.js"></script>
+
+<table align="center">
+	<tr>
+		<th align="left">Price</th>
+		<th>Product</th>
+		<th></th>
+	</tr>
+	<script>
+	let shopBasket1=[];
+	let check=JSON.parse(sessionStorage.getItem('pointer'));
+	if(check==null)		
+		sessionStorage.setItem("pointer",JSON.stringify(shopBasket1));	
+	for(let i=0;i<products.length;i++){
+		for(let key in products[i]){
+			document.write("<tr>");
+			document.write("<td>" + key + "</td>");
+			document.write("<td>" + products[i][key] + "</td>");
+			document.write(`<td><input type="button" 
+				value="Add to ShopBakset"  
+				onClick='addToBasket(${JSON.stringify(products[i])})'/></td>`);
+			document.write("</tr>");
+		}
+	}
+	</script>
+</table>
+<center>
+	<h2>Go to your basket:</h2>
+	<a href="showbasket.html"><img src="shopbasket.jpg" title="basket" alt="basket"></a>
+</center> </br>
+<center><p id="change"></p></center>
+</div>
+
+
+
+</body>
+</html>

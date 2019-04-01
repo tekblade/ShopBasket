@@ -1,0 +1,14 @@
+@charset "UTF-8"; 
+.center {
+	margin: auto;
+	max-width: 60%;
+	border: 3px solid #000000;
+	margin: 10px auto;
+	padding: 2px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+	text-align: left;
+}
