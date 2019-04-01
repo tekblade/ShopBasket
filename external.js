@@ -62,9 +62,7 @@ function removeFromTheBasket(arrayElement){
 					delete shopBasket[i][key];
 					document.getElementById(`key${key}`).innerHTML = `${helpKey}`;
 				}
-				console.log(helpKey);
-				sessionStorage.setItem("pointer", JSON.stringify(shopBasket));
-				console.log(shopBasket);
+				sessionStorage.setItem("pointer", JSON.stringify(shopBasket));	
 			}
 		}
 	}
